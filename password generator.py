@@ -1,12 +1,10 @@
-# very basic random password generator, probably like 1000 better ones out there
 import random
 import string
 
 print("Password Generator\n")
 
 allChars = list(string.printable)
-allChars[-7:] = []
- # remove items like \n \t \r \x0b \x0c
+allChars[-7:] = [] # remove items like \n \t \r \x0b \x0c
 random.shuffle(allChars) # shuffles all the items in the list randomly
 
 while True:
