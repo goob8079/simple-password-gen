@@ -16,6 +16,12 @@ while True:
         print("Please enter a integer to determine length.\n")
         continue
 
+addSyms = input("Would you like to add numbers? y/n: ")
+if addSyms == "y":
+    pass
+elif addSyms == "n":
+    allChars[-32:] = []
+
 def randPassword():
     passwordAsList = []
     for i in range(int(passStrength)):
