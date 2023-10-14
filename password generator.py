@@ -4,7 +4,7 @@ import string
 print("Password Generator\n")
 
 allChars = list(string.printable)
-allChars[-7:] = [] # remove items like \n \t \r \x0b \x0c
+allChars[-6:] = [] # remove items like \n \t \r \x0b \x0c
 random.shuffle(allChars) # shuffles all the items in the list randomly
 
 while True:
