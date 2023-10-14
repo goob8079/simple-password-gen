@@ -4,11 +4,10 @@ import string
 print("Password Generator\n")
 
 allChars = list(string.printable)
-allChars[-6:] = [] # remove items like \n \t \r \x0b \x0c
-random.shuffle(allChars) # shuffles all the items in the list randomly
+allChars[-6:] = [] # remove items like \n \t \r \x0b \x0c and ' '
 
 while True:
-    passStrength = input("Enter the length of password (max limit = 93): ")
+    passStrength = input("Enter the length of password: ")
     if passStrength.isdigit(): # .isdigit() checks to see if the input is an integer
         False
         break
@@ -16,7 +15,7 @@ while True:
         print("Please enter a integer to determine length.\n")
         continue
 
-addSyms = input("Would you like to add numbers? y/n: ")
+addSyms = input("Would you like to add symbols? y/n: ")
 if addSyms == "y":
     pass
 elif addSyms == "n":
@@ -24,10 +23,11 @@ elif addSyms == "n":
 
 def randPassword():
     passwordAsList = []
+    random.shuffle(allChars) # shuffles all the items in the list randomly
     for i in range(int(passStrength)):
         passwordAsList.append(allChars[i])
     newPassword = ''.join(passwordAsList) # .join() joins the list items together to create a string
 
     print(f"Your password is: {newPassword}")
 
-randPassword()
+randPassword() 
