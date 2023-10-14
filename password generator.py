@@ -15,11 +15,30 @@ while True:
         print("Please enter a integer to determine length.\n")
         continue
 
-addSyms = input("Would you like to add symbols? y/n: ")
-if addSyms == "y":
+while True:
+    addSyms = input("Would you like to add symbols? y/n: ").lower()
+    if addSyms.isdigit():
+        print("Please enter y or n.")
+        continue
+    else:
+        pass 
+
+    if addSyms == "y":
+        pass
+        False
+    elif addSyms == "n":
+        allChars[-32:] = []
+        False
+    else:
+        print("Please enter y or n.")
+        continue
+    break
+
+addNums = input("Would you like to add numbers? y/n: ").lower()
+if addNums == "y":
     pass
-elif addSyms == "n":
-    allChars[-32:] = []
+elif addNums == "n":
+    allChars[:10] = []
 
 def randPassword():
     passwordAsList = []
