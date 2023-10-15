@@ -34,11 +34,22 @@ while True:
         continue
     break
 
-addNums = input("Would you like to add numbers? y/n: ").lower()
-if addNums == "y":
-    pass
-elif addNums == "n":
-    allChars[:10] = []
+while True:
+    addNums = input("Would you like to add numbers? y/n: ").lower()
+    if addNums.isdigit():
+            print("Please enter y or n.")
+            continue
+    else:
+        pass
+
+    if addNums == "y":
+        pass
+    elif addNums == "n":
+        allChars[:10] = []
+    else:
+        print("Please enter y or n.")
+        continue
+    break
 
 def randPassword():
     passwordAsList = []
