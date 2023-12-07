@@ -1,5 +1,6 @@
 import random
 import string
+# This is a test to see if the branches are different programs altogether
 
 print("Password Generator\n")
 
