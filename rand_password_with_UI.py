@@ -4,14 +4,16 @@ import PySimpleGUI as sg
 import os
 import keyboard
 
-l1 = sg.Text("Enter Password Length:", key="password", justification='left')
-passLengthInput = sg.InputText('', enable_events=True, key="-INPUT-", justification='left') 
-displayError = sg.Text("", key='xxx')
-displaySymsBox = sg.Text("", key="syms")
+l1 = sg.Text("Password Length:", key="password", justification='left')
+firstNum = 1
+passLengthNum = sg.Text(firstNum, key="passLen") 
+displayError = sg.Text("", key='error')
+displayMessage = sg.Text("", key='message')
+includeSymsBox = sg.Text("", key="syms")
 
-layout = [[l1, passLengthInput],
-          [displayError],
-          [displaySymsBox],
+layout = [[l1, passLengthNum, sg.Button("+"), sg.Button("-")],
+          [displayError, displayMessage],
+          [includeSymsBox],
     [sg.Button('OK'), sg.Button('Cancel')]
 ]
 
@@ -21,18 +23,23 @@ while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED or event == 'Cancel':
         break
+    elif event == "+":   
+        firstNum += 1
+        window["passLen"].update(firstNum)
+    elif event == "-":
+        firstNum -= 1
+        window["passLen"].update(firstNum)
+        if firstNum < 0:
+                firstNum = 0
+                window['error'].update("Cannot go lower than 0.")
+                window["passLen"].update(firstNum)
+    
+    window['message'].update("Press OK or the Enter key to proceed")
 
-    passLength = int(values["password"])
-
-    if passLengthInput == type(int):
-        pass
-    elif passLengthInput == '':
-        window['xxx'].update("Please enter a integer to determine length.\n") # update() updates the variable of the key that is called, in this case it updates displayError
-        continue
-    elif passLengthInput != type(int):
-        window['xxx'].update("Please enter a integer to determine length.\n")
-        continue
-
+    #if event == 'OK' or event == (keyboard.read_key() == "enter"):
+        #()
+    
+"""
     if event == 'OK' or event == (keyboard.read_key() == "enter"):
         addSyms = sg.InputText(("Would you like to add symbols? y/n: "), enable_events=True).lower()
         window['syms'].update(addSyms)
@@ -42,5 +49,6 @@ while True:
             continue
         else:
             pass 
-
+"""
+            
 window.close()
