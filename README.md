@@ -4,10 +4,7 @@ very simple random password generator
 
 has the ability to include one of each ASCII character,  with the exception of \n \t \r \x0b \x0c and  ' '
 
-now, there is a feature that asks users if they want to add symbols or numbers to their passwords.
+There is a feature that asks users if they want to add symbols or numbers to their passwords.
 
-added a feature to determine password strength. 
-
-if anything other than "y" or "n" is typed in when asked to include numbers or symbols, a message will come up asking the user to type either "y" or "n".
-
-planning to add a UI (I have no idea how to create one so it will take a while).
+A UI was created for the code, but I'm still trying to fix a few small things. 
+Notably, the issue where if you select "y" or "n" for either the "add symbols?" or "add numbers?" prompts, after pressing OK and a password is genereted and then you change the options for either of the two prompt, it doesn't update, so it'll stay stuck at the first option you chose. It's going to take a bit of time for me to fix it. 
